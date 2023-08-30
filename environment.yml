@@ -9,10 +9,11 @@ dependencies:
   - pandas
   - matplotlib
   - ipykernel
+  - tqdm
 
   # Web Scraping
-  - beautifulsoup4
   - requests
+  - beautifulsoup4
 
   # Finance Data
   - yfinance
@@ -22,14 +23,7 @@ dependencies:
   # Machine Learning
   - tensorflow
   - tensorflow-hub
-  - pytorch::pytorch
   - scikit-learn
-  - pmdarima
-  - nltk
 
   # Secrets
   - python-dotenv
-
-  - pip
-  - pip:
-    - stockstats
