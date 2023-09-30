@@ -83,12 +83,12 @@ for ticker in progress_bar:
     progress_bar.set_postfix_str(ticker.ljust(5, " "))
 
     if ticker in problem_symbols:
+        failed_symbols += 1
         continue
 
     # Create a URL for each of the earnings_tickers in the style specified by AV
     url = 'https://www.alphavantage.co/query?function=EARNINGS&symbol={}&apikey={}'.format(ticker, key)
 
-    # Run the API call
     r = requests.get(url)
 
     # Convert the API pull to .json and then to DataFrame
@@ -116,15 +116,15 @@ earnings_df = pd.concat(earnings_list, axis=0)
 # Sort by symbol and date
 earnings_df.sort_index(inplace=True)
 
-earnings_dtypes = {
-    "fiscalDateEnding": pd.CategoricalDtype(),
-    "reportedEPS": pd.Float64Dtype(),
-    "estimatedEPS": pd.Float64Dtype(),
-    "surprise": pd.Float64Dtype(),
-    "surprisePercentage": pd.Float64Dtype(),
-}
-earnings_df = earnings_df.astype(earnings_dtypes)
+# earnings_dtypes = {
+#     "fiscalDateEnding": pd.CategoricalDtype(),
+#     "reportedEPS": pd.Float64Dtype(),
+#     "estimatedEPS": pd.Float64Dtype(),
+#     "surprise": pd.Float64Dtype(),
+#     "surprisePercentage": pd.Float64Dtype(),
+# }
+# earnings_df = earnings_df.astype(earnings_dtypes)
 
 # Save the table
-earnings_df_save_path = Path("data/earnings.parquet")
+earnings_df_save_path = Path("data/earnings_try.parquet")
 earnings_df.to_parquet(earnings_df_save_path)

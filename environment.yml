@@ -1,29 +1,46 @@
-name: Earnings_Gaps
+name: term3_projects
 channels:
   - conda-forge
 dependencies:
 
   # The Works
-  - python
+  - python=3.11
   - numpy
   - pandas
   - matplotlib
   - ipykernel
-  - tqdm
+  - statsmodels
+
+  # Parallel Computing
+  - dask
 
   # Web Scraping
-  - requests
   - beautifulsoup4
+  - requests
+  - grequests
 
   # Finance Data
   - yfinance
-  - pandas-datareader
   - alpha_vantage
 
   # Machine Learning
   - tensorflow
-  - tensorflow-hub
   - scikit-learn
 
   # Secrets
   - python-dotenv
+
+  # LLMs / NLP
+  - openai
+  - tiktoken
+  - nltk
+
+  # Other
+  - pyarrow
+  - tqdm
+  - ipywidgets
+  - jinja2
+  - pip
+  - pip:
+    - stockstats
+    - pylcs

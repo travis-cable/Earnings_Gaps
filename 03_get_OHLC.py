@@ -21,7 +21,7 @@ earnings_tickers.remove('MNK')
 earnings_tickers.remove('OTIS')
 
 ohlc_list = {}
-start_date = '1999-01-01'
+start_date = earnings_df.index.get_level_values(0).min()
 
 progress_bar = tqdm(earnings_tickers, desc="Forming features and labels")
 for ticker in progress_bar:
@@ -34,7 +34,7 @@ for ticker in progress_bar:
     ohlc.reset_index(inplace=True)
     ohlc['Date'] = pd.to_datetime(ohlc['Date'])
     ohlc['ticker'] = [ticker] * ohlc.shape[0]
-    ohlc.set_index(['ticker', 'Date'], inplace=True)
+    ohlc.set_index(['Date', 'ticker'], inplace=True)
 
     ohlc_list[ticker] = ohlc
 
