@@ -1,5 +1,5 @@
 # Earnings_Gaps
-This code utilizes machine learning to model next-quarter returns for stocks which experienced earnings-related gaps.
+This code utilizes machine learning to forecast next-quarter stock price movement after earnings.
 
 # ToDos:
-To run this code, you'll need to create a personal "api_keys.py" file with your Alpha Vantage API key written as a string variable and named "AV_key".
+To run this code, you'll need to create a .env file in the root directory and add the environment variable ALPHAVANTAGE_API_KEY = 'XXXXXXXXXXXXXX'.
